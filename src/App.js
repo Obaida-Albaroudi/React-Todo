@@ -2,6 +2,8 @@ import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList.js";
 import ListForm from "./components/TodoComponents/TodoForm.js";
 
+
+
 const List = [
   {
     task: '',
@@ -51,12 +53,18 @@ class App extends React.Component {
     })
   }
 
+  Clear = () => {
+    this.setState({
+      List: this.state.List.filter(todo => !todo.completed)
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList List={this.state.List} toggleTodo={this.toggleTodo}/>
-        <ListForm addTask={this.addTask}/>
+        <TodoList List={this.state.List} toggleTodo={this.toggleTodo} Clear={this.Clear}/>
+        <ListForm addTask={this.addTask} />
       </div>
     );
   }
