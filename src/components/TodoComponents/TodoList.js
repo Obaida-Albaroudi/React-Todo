@@ -8,7 +8,7 @@ import Todo from "./Todo.js";
 const TodoList = props => {
     return (
         <div>
-            {props.map (todo =>(
+            {props.List.map (todo =>(
                 <Todo key={todo.id} todo={todo} toggleTodo = {props.toggleTodo}/>
             ))}
             <button onClick = {props.Clear}>
@@ -17,3 +17,5 @@ const TodoList = props => {
         </div>
     )
 }
+
+export default TodoList;
